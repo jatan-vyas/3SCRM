@@ -1,0 +1,163 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="CMSApplication.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> 3S Content Management Service</title>
+    <%--<link rel="icon" type="image/png" sizes="16x16" href="quixlab/images/favicon.png">--%>
+
+    <!-- Pignose Calender -->
+    <link href="./quixlab/plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
+    <link href="quixlab/css/style.css" rel="stylesheet">
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+</head>
+<body>
+    <form runat="server">
+        <!--******************* Preloader start ********************-->
+        <div id="preloader">
+            <div class="loader">
+                <svg class="circular" viewBox="25 25 50 50">
+                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+                </svg>
+            </div>
+        </div>
+        <!--******************* Preloader end ********************-->
+
+        <!--********************************** Main wrapper start ***********************************-->
+        <div id="main-wrapper">
+            <!--********************************** Nav header start ***********************************-->
+            <div class="nav-header" style="background: #fff;">
+                <div class="brand-logo" style="background: #fff;">
+                    <a href="Dashboard.aspx">
+                        <b class="logo-abbr">
+                            <img src="quixlab/images/3sLogo.png" alt="">
+                        </b>
+                        <span class="logo-compact">
+                            <img src="./quixlab/images/logo-compact.png" alt=""></span>
+                        <span class="brand-title">
+                            <img src="quixlab/images/3sLogo.png" alt="">
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <!--********************************** Nav header end ***********************************-->
+            <!--********************************** Header start ***********************************-->
+            <div class="header">
+                <div class="header-content clearfix">
+
+                    <div class="nav-control">
+                        <div class="hamburger">
+                            <span class="toggle-icon"><i class="icon-menu"></i></span>
+                        </div>
+                    </div>
+                    <div class="header-left">
+                        <div class="input-group icons">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1" style="color: #04c;"><%--<i class="mdi mdi-magnify"></i>--%>
+                                    3S Content Management Service
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <ul class="clearfix">
+
+                            <li class="icons dropdown">
+                                <div class="user-img c-pointer position-relative" data-toggle="dropdown">
+                                    Welcome  &nbsp;
+                                    <asp:Label ID="lblLoggedInUser" runat="server" />&nbsp;&nbsp;&nbsp;
+                                    <span class="activity active"></span>
+                                    <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+                                    <%--<img src="quixlab/images/user/1.png" height="40" width="40" alt="">--%>
+                                </div>
+                                <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
+                                    <div class="dropdown-content-body">
+                                        <ul>
+                                            <li>
+                                                <a href="" id="userProfile" runat="server"><i class="icon-user"></i><span>Profile</span></a>
+                                            </li>
+
+                                            <li><%--<a href="Login.aspx"><i class="icon-key"></i><span>Logout</span></a>--%>
+                                                <asp:LinkButton runat="server" id="lnlLogOut" CssClass="icon-key" OnClick="lnlLogOut_Click">  Logout</asp:LinkButton>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--********************************** Header end ti-comment-alt ***********************************-->
+            <!--********************************** Sidebar start ***********************************-->
+            <div class="nk-sidebar" style="top: 10rem">
+                <div class="nk-nav-scroll">
+                    <ul class="metismenu" id="menu">
+                        <li>
+                            <a class="" href="Dashboard.aspx">
+                                <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="Company.aspx">
+                                <i class="icon-disc menu-icon"></i><span class="nav-text">Company</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="Users.aspx" id="lnkAUser" runat="server">
+                                <i class="icon-people menu-icon"></i><span class="nav-text">User</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="ImportData.aspx" id="lnkAImportData" runat="server">
+                                <i class="icon-pencil menu-icon"></i><span class="nav-text">Import Data</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--********************************** Sidebar end ***********************************-->
+            <!--********************************** Content body start ***********************************-->
+            <div class="content-body">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <!--********************************** Content body end ***********************************-->
+            <!--********************************** Footer start ***********************************-->
+            <div class="footer">
+                <div class="copyright">
+                    <p>Copyright &copy; <%: DateTime.Now.Year %></p>
+                </div>
+            </div>
+            <!--********************************** Footer end ***********************************-->
+
+        </div>
+        <!--********************************** Main wrapper end ***********************************-->
+        <!--********************************** Scripts ***********************************-->
+        <script src="quixlab/plugins/common/common.min.js"></script>
+        <script src="quixlab/js/custom.min.js"></script>
+        <script src="quixlab/js/settings.js"></script>
+        <script src="quixlab/js/gleek.js"></script>
+        <script src="quixlab/js/styleSwitcher.js"></script>
+
+
+        <!-- Pignose Calender -->
+        <script src="./quixlab/plugins/moment/moment.min.js"></script>
+        <script src="./quixlab/plugins/pg-calendar/js/pignose.calendar.min.js"></script>
+
+        <%-- Company page related js --%>
+
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <link href="https://cdn.datatables.net/1.11.0/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+        <script src="quixlab/js/CompanyDetails.js" type="text/javascript"></script>
+    </form>
+</body>
+</html>
