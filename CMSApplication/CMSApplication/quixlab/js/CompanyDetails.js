@@ -1,8 +1,8 @@
 ﻿$(document).ready(function () {
-    EmployeeTab();
+    /*EmployeeTab();
     PartnerTab();
     PartnerFamilyTab();
-    MiscTab();
+    MiscTab();*/
     var prevPageURL = document.referrer;
     // tab-one - General
     // tab-two - Partner
@@ -21,7 +21,7 @@
     else if (prevPageURL && prevPageURL.toLowerCase().trim().includes("partnermiscdetails")) {
         $("#tab-five")[0].checked = true;
     }
-    else {
+    else if ($("#tab-one") && $("#tab-one").length > 0) {
         $("#tab-one")[0].checked = true;
     }
 });
@@ -57,7 +57,7 @@ function EmployeeTab() {
     });
 
     function OnEmployeeSuccess(response) {
-        var _id = getParameterByName("id"); 
+        var _id = getParameterByName("id");
         $("[id=MainContent_gvEmployeeDetails]").DataTable(
             {
                 destroy: true,
@@ -83,13 +83,13 @@ function EmployeeTab() {
                     },
                     {
                         "mRender": function (data, type, row) {
-                            return '<a href=EmployeeDetails.aspx?op=edit&empid=' + row.Pk_employeeid + '&id=' + _id +'><i class="fa fa-edit"></i></a>';
+                            return '<a href=EmployeeDetails.aspx?op=edit&empid=' + row.Pk_employeeid + '&id=' + _id + '><i class="fa fa-edit"></i></a>';
                         }
                     },
                     {
                         "mRender": function (data, type, row) {
                             return '<a href="#" onclick="deleteEmployee(this)" id=' + row.Pk_employeeid + '><i class="fa fa-trash"></i></a>';
-                        }   
+                        }
                     }
                 ]
             });
@@ -146,13 +146,13 @@ function PartnerTab() {
                     },
                     {
                         "mRender": function (data, type, row) {
-                            return '<a href=PartnerDetails.aspx?op=edit&parid=' + row.Pk_partnerid + '&id=' + _id +'><i class="fa fa-edit"></i></a>';
+                            return '<a href=PartnerDetails.aspx?op=edit&parid=' + row.Pk_partnerid + '&id=' + _id + '><i class="fa fa-edit"></i></a>';
                         }
                     },
                     {
                         "mRender": function (data, type, row) {
                             return '<a href="#" onclick="deletePartner(this)" id=' + row.Pk_partnerid + '><i class="fa fa-trash"></i></a>';
-                        }   
+                        }
                     }
                 ]
             });
@@ -218,7 +218,7 @@ function PartnerFamilyTab() {
                     {
                         "mRender": function (data, type, row) {
                             return '<a href="#" onclick="deleteFamily(this)" id=' + row.Pk_familyid + '><i class="fa fa-trash"></i></a>';
-                        }   
+                        }
                     }
                 ]
             });
@@ -273,13 +273,13 @@ function MiscTab() {
                     },
                     {
                         "mRender": function (data, type, row) {
-                            return '<a href=PartnerMiscDetails.aspx?op=edit&miscid=' + row.Pk_miscid + '&id=' + _id +'><i class="fa fa-edit"></i></a>';
+                            return '<a href=PartnerMiscDetails.aspx?op=edit&miscid=' + row.Pk_miscid + '&id=' + _id + '><i class="fa fa-edit"></i></a>';
                         }
                     },
                     {
                         "mRender": function (data, type, row) {
                             return '<a href="#" onclick="deleteMisc(this)" id=' + row.Pk_miscid + '><i class="fa fa-trash"></i></a>';
-                        }   
+                        }
                     }
                 ]
             });

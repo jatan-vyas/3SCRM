@@ -311,17 +311,17 @@
                                         <tbody>
                                             <tr>
                                                 <th class="text-center text-black">
-                                                    <a style="color: #7571f9;" href='#' class=""><%# Eval("FML_NAME")%> </a>(<%# Eval("COMP_NAME")%>
+                                                    <a style="color: #7571f9;" href='#' class=""><%# Eval("MISC_NAME")%> </a>(<%# Eval("COMP_NAME")%>
                                                 )
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <table class="table innerTable">
                                                         <tr>
-                                                            <td style="width: 30%">Passport Expiry : </td>
-                                                            <td style="width: 20%"><b style="color: #000"><%# Eval("FML_PASSPORT_EXP","{0: dd-MMM-yyyy}")%></b></td>
+                                                            <td style="width: 30%">Expiry : </td>
+                                                            <td style="width: 20%"><b style="color: #000"><%# Eval("MISC_EXP_DATE","{0: dd-MMM-yyyy}")%></b></td>
                                                         </tr>
-                                                        <tr>
+                                                        <%--<tr>
                                                             <td style="width: 30%">Insurance Expiry : </td>
                                                             <td style="width: 30%"><b style="color: #000"><%# Eval("FML_INSURANCE_EXP","{0: dd-MMM-yyyy}")%></b></td>
                                                         </tr>
@@ -329,7 +329,7 @@
                                                         <tr>
                                                             <td style="width: 30%">Visa Expiry : </td>
                                                             <td style="width: 20%"><b style="color: #000"><%# Eval("FML_VISA_EXP","{0: dd-MMM-yyyy}")%></b></td>
-                                                        </tr>
+                                                        </tr>--%>
                                                     </table>
                                                 </td>
                                             </tr>
